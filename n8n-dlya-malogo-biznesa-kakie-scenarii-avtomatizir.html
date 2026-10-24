@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>n8n для малого бизнеса: какие сценарии автоматизировать в первую очередь</title><style>:root{--ink:#1f2a2e;--muted:#5d6b70;--accent:#2f7d6d;--bg:#f7f5f0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.7 Georgia,"PT Serif","Times New Roman",serif}
+header.site{background:#fff;border-bottom:1px solid #e4e0d6;padding:14px 20px;font:600 15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.site a{color:var(--accent);text-decoration:none;margin-right:18px}
+article,main{max-width:720px;margin:40px auto;padding:40px 44px;background:#fff;border-radius:10px;box-shadow:0 2px 18px rgba(0,0,0,.05)}
+h1{font:700 38px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:0 0 24px;letter-spacing:-.5px}
+h2{font:700 26px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:40px 0 12px}
+h3{font:600 21px/1.35 system-ui,sans-serif;margin:28px 0 8px}
+p{margin:0 0 18px}a{color:var(--accent)}ul,ol{padding-left:24px;margin:0 0 18px}li{margin-bottom:6px}
+figure{margin:32px -44px}figure img{width:100%;height:auto;display:block}
+figcaption{font:14px/1.5 system-ui,sans-serif;color:var(--muted);padding:8px 44px 0}
+blockquote{margin:24px 0;padding:4px 20px;border-left:4px solid var(--accent);color:var(--muted);font-style:italic}
+footer.site{text-align:center;color:var(--muted);font:14px system-ui,sans-serif;padding:0 20px 40px}
+@media(max-width:760px){body{font-size:17px}article,main{margin:0;border-radius:0;padding:24px 20px}figure{margin:24px -20px}figcaption{padding:8px 20px 0}h1{font-size:29px}}
+</style></head><body><article><h1>n8n для малого бизнеса: какие сценарии автоматизировать в первую очередь</h1>
+<p>Обычно о n8n узнают одинаково: кто-то показал схему с десятком красивых блоков, где нейросеть сама отвечает клиентам. Потом владелец бизнеса неделю собирает похожую схему, она ломается на третьей заявке, и инструмент записывают в игрушки. Хотя проблема в выборе первого сценария, а не в n8n.</p><figure><img src="img/n8n-dlya-malogo-biznesa-kakie-scenarii-avtomatizir-1.jpg" alt="n8n для малого бизнеса: какие сценарии автоматизировать в первую очередь — иллюстрация 1" loading="lazy" style="max-width:100%"><figcaption>Фото: Sergei Magel/HNF / <a href="https://commons.wikimedia.org/wiki/File:Artificial_Intelligence_(AI)_and_Robotics_exhibition_at_the_Heinz_Nixdorf_MuseumsForum.jpg">Wikimedia Commons</a>, CC BY-SA 4.0</figcaption></figure><figure><img src="img/n8n-dlya-malogo-biznesa-kakie-scenarii-avtomatizir-2.jpg" alt="n8n для малого бизнеса: какие сценарии автоматизировать в первую очередь — иллюстрация 2" loading="lazy" style="max-width:100%"><figcaption>Фото: MichaelShort1975 / <a href="https://commons.wikimedia.org/wiki/File:Sunderland_University_Experimental_Robot_Arm.jpg">Wikimedia Commons</a>, CC BY-SA 4.0</figcaption></figure>
+<p>Ниже порядок, который я считаю разумным для компании из 5–50 человек, где нет своего программиста. Похожие внедрения с разбором ошибок мы описываем на <a href="https://sverdlov.pro/">sverdlov.pro</a>, а здесь только суть: что делать сначала, что потом и что пока не трогать.</p>
+<h2>Почему n8n, а не Make или Zapier</h2>
+<p>Главное отличие в том, как считаются деньги. Zapier и Make списывают лимит за каждый шаг: цепочка из пяти шагов, которая сработала сто раз, расходует 500 задач. n8n считает выполнение сценария целиком, «regardless of complexity», то есть сколько бы блоков ни стояло внутри. Облачный тариф Starter стоит от 20 € в месяц при оплате за год и включает до 2 500 выполнений, Pro стоит от 50 € за 10 000.</p>
+<p>Можно поставить n8n и на свой сервер. Community-версия бесплатна, и в ней почти все функции. Но у лицензии есть условие, которое часто пропускают: использовать её можно «only for your own internal business purposes». Автоматизировать свою компанию можно. Продавать n8n клиентам как свой сервис нельзя.</p>
+<p>Для российского бизнеса свой сервер часто обязателен. С 1 июля 2025 года запись, хранение и обновление персональных данных граждан РФ с использованием баз за пределами России не допускаются. Если сценарий передаёт телефоны и имена клиентов, облако n8n в Европе становится юридическим риском. VPS в российском дата-центре под такую задачу обходится примерно в тысячу с небольшим рублей в месяц.</p>
+<h2>Первая очередь: заявки</h2>
+<p>Начинайте с места, где теряются деньги, а не время. Почти всегда это входящие заявки. Сценарий простой: форма с сайта, звонок или сообщение из мессенджера попадает в CRM, менеджер получает уведомление в Telegram, клиент получает подтверждение. Следом нужна контрольная точка: если через 15 минут статус заявки не изменился, напоминание уходит руководителю.</p>
+<p>Выглядит скромно. Но именно здесь видно, сколько обращений раньше просто терялось, и окупаемость считается за неделю.</p>
+<p>Сразу продумайте дубли. Вебхуки иногда приходят дважды, клиент отправляет форму два раза. Проверяйте, нет ли уже такой заявки, причём не только по телефону: люди пишут его в разных форматах.</p>
+<h2>Вторая очередь: деньги и повторные продажи</h2>
+<p>Когда заявки работают, переходите к тому, что ближе к оплате:
+- напоминание, если счёт не оплачен 48 часов;
+- сигнал, если по сделке нет движения двое суток;
+- для услуг: напоминание за сутки до визита, просьба об отзыве через 3 дня после него и предложение записаться снова через 30 дней.</p>
+<p>Последний пункт менеджеры руками стабильно не делают никогда. Сценарий делает каждый раз.</p>
+<h2>Третья очередь: отчёты и синхронизация</h2>
+<p>Ежедневная сводка в Telegram (заявки, оплаты, просрочки) заменяет половину планёрок. Сюда же относится синхронизация остатков и цен между учётной системой, сайтом и маркетплейсами. Она сложнее, потому что ошибка в ней сразу видна покупателям, поэтому браться за неё лучше, когда команда уже привыкла к n8n.</p>
+<h2>Что пока не трогать</h2>
+<p>Сложные ИИ-агенты, которые сами ведут переписку, и глубокую двустороннюю интеграцию с 1С. Это полезные вещи, но без мониторинга и опыта они превращаются в бесконечную отладку. Нейросеть разумно встроить точечно: классифицировать заявку или составить черновик ответа, который человек проверит.</p>
+<h2>Без чего сценарий сломается тихо</h2>
+<p>n8n позволяет назначить error workflow, отдельный сценарий, который запускается при сбое выполнения. Настройте его первым и пусть он пишет вам в Telegram. Для запросов к нейросетям включите Retry On Fail: сервисы периодически отвечают ошибкой лимита, и без повтора заявка просто пропадёт.</p>
+<p>И назначьте человека, который раз в неделю смотрит журнал выполнений. Автоматизация, за которой никто не следит, ломается так же незаметно, как раньше терялись заявки в почте.</p></article></body></html>
